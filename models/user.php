@@ -4,12 +4,12 @@ class User{
     public $connectDB;
     public $message;
 
-    private $userId;
-    private $userFullName;
-    private $userBirthDate;
-    private $userName;
-    private $userPassword;
-    private $userImage;
+    public $userId;
+    public $userFullName;
+    public $userBirthDate;
+    public $userName;
+    public $userPassword;
+    public $userImage;
 
     public function __construct($connectDB){
         $this->connectDB = $connectDB;

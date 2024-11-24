@@ -19,17 +19,23 @@ $data = json_decode(file_get_contents("php://input"));
 
 $result = $money->getMoney($data->userId);
 
-if($result){
+if ($result->rowCount() > 0) {
     $resultData = array();
-    $resultArray = array(
-        "message" => "1",
-        "moneyDetail" => $result['moneyDetail'],
-        "moneyDate" => $result['moneyDate'],
-        "moneyInOut" => $result['moneyInOut'],
-        "moneyType" => $result['moneyType'],
-        "userId" => $result['userId'],
-    );
-    array_push($resultData, $resultArray);
+
+    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+        extract($row);
+
+        $resultArray = array(
+            "message" => "1",
+            "moneyDetail" => $moneyDetail,
+            "moneyDate" => $moneyDate,
+            "moneyInOut" => $moneyInOut,
+            "moneyType" => $moneyType,
+        );
+
+        array_push($resultData, $resultArray);
+    }
+
     echo json_encode($resultData);
 } else {
     $resultData = array();

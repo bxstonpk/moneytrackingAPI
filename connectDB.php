@@ -3,8 +3,8 @@
 class ConnectDB{
     private $hostDB = '127.0.0.1';
     private $userDB = 'root';
-    private $passwordDB = '';
-    private $dbName = 'money_tracking_db';
+    private $passwordDB = "";
+    private $dbName = "money_tracking_db";
 
     public $connectDB;
 
@@ -14,7 +14,7 @@ class ConnectDB{
 
         try {
             $this->connectDB = new PDO(
-                'mysql:host=' . $this->hostDB . ';dbname=' . $this->dbName,
+                "mysql:host=$this->hostDB; dbname=$this->dbName",
                 $this->userDB,
                 $this->passwordDB
             );

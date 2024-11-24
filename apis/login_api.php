@@ -22,11 +22,11 @@ if($result){
     $resultData = array();
     $resultArray = array(
         "message" => '1',
-        "userId" => $result['userId'],
-        "userFullName" => $result['userFullName'],
-        "userBirthDate" => $result['userBirthDate'],
-        "userName" => $result['userName'],
-        "userImage" => $result['userImage']
+        "userId" => $userId,
+        "userFullName" => $userFullName,
+        "userBirthDate" => $userBirthDate,
+        "userName" => $userName,
+        "userImage" => $userImage
     );
     array_push($resultData, $resultArray);
     echo json_encode($resultData);
