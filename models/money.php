@@ -18,7 +18,7 @@ class Money{
     public function getMoney($userId){
         $strSql = "SELECT * FROM money_tb WHERE userId = :userId ORDER BY moneyDate DESC";
 
-        $userId = htmlspecialchars(strip_tags($userId));
+        $userId = intval(htmlspecialchars(strip_tags($userId)));
 
         $stmt = $this->connectDB->prepare($strSql);
 
